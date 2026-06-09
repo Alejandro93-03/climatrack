@@ -92,8 +92,8 @@ class AppInputs {
     FocusNode? focusNode,
     IconData? prefixIcon,
     bool hasError = false,
-    bool readOnly = false, // 👈 NUEVO
-    VoidCallback? onTap, // 👈 NUEVO
+    bool readOnly = false, 
+    VoidCallback? onTap, 
     TextInputType? keyboardType,
   }) {
     final bool isFocused = focusNode?.hasFocus ?? false;
@@ -111,8 +111,8 @@ class AppInputs {
       textField: TextField(
         controller: controller,
         focusNode: focusNode,
-        readOnly: readOnly, // 👈 AÑADIDO
-        onTap: onTap, // 👈 AÑADIDO
+        readOnly: readOnly, 
+        onTap: onTap, 
         keyboardType: keyboardType,
         decoration: _baseDecoration(
           placeholder: placeholder,
@@ -133,8 +133,8 @@ class AppInputs {
     TextEditingController? controller,
     FocusNode? focusNode,
     bool hasError = false,
-    bool readOnly = false, // 👈 NUEVO
-    VoidCallback? onTap, // 👈 NUEVO
+    bool readOnly = false, 
+    VoidCallback? onTap, 
     TextInputType? keyboardType,
   }) {
     final bool isFocused = focusNode?.hasFocus ?? false;
@@ -148,8 +148,8 @@ class AppInputs {
       textField: TextField(
         controller: controller,
         focusNode: focusNode,
-        readOnly: readOnly, // 👈 AÑADIDO
-        onTap: onTap, // 👈 AÑADIDO
+        readOnly: readOnly, 
+        onTap: onTap, 
         keyboardType: keyboardType,
         decoration: _baseDecoration(placeholder: placeholder),
       ),
@@ -168,8 +168,8 @@ class AppInputs {
     TextEditingController? controller,
     IconData? prefixIcon,
     bool hasError = false,
-    bool readOnly = false, // 👈 NUEVO
-    VoidCallback? onTap, // 👈 NUEVO
+    bool readOnly = false, 
+    VoidCallback? onTap, 
   }) {
     final bool isFocused = focusNode?.hasFocus ?? false;
 
@@ -187,8 +187,8 @@ class AppInputs {
         controller: controller,
         focusNode: focusNode,
         obscureText: obscureText,
-        readOnly: readOnly, // 👈 AÑADIDO
-        onTap: onTap, // 👈 AÑADIDO
+        readOnly: readOnly, 
+        onTap: onTap, 
         decoration: _baseDecoration(
           placeholder: placeholder,
           prefixIcon: prefixIcon != null
@@ -215,8 +215,8 @@ class AppInputs {
     FocusNode? focusNode,
     TextEditingController? controller,
     bool hasError = false,
-    bool readOnly = false, // 👈 NUEVO
-    VoidCallback? onTap, // 👈 NUEVO
+    bool readOnly = false, 
+    VoidCallback? onTap, 
   }) {
     final bool isFocused = focusNode?.hasFocus ?? false;
 
@@ -233,8 +233,8 @@ class AppInputs {
       textField: TextField(
         controller: controller,
         focusNode: focusNode,
-        readOnly: readOnly, // 👈 AÑADIDO
-        onTap: onTap, // 👈 AÑADIDO
+        readOnly: readOnly, 
+        onTap: onTap, 
         decoration: _baseDecoration(
           placeholder: placeholder,
           suffixIcon: Icon(Icons.search, color: iconColor),
@@ -252,8 +252,8 @@ class AppInputs {
     FocusNode? focusNode,
     TextEditingController? controller,
     bool hasError = false,
-    bool readOnly = false, // 👈 NUEVO
-    VoidCallback? onTap, // 👈 NUEVO
+    bool readOnly = false, 
+    VoidCallback? onTap, 
   }) {
     final bool isFocused = focusNode?.hasFocus ?? false;
 
@@ -270,8 +270,8 @@ class AppInputs {
       textField: TextField(
         controller: controller,
         focusNode: focusNode,
-        readOnly: readOnly, // 👈 AÑADIDO
-        onTap: onTap, // 👈 AÑADIDO
+        readOnly: readOnly, 
+        onTap: onTap, 
         decoration: _baseDecoration(
           placeholder: placeholder,
           suffixIcon: Icon(Icons.search, color: iconColor),
