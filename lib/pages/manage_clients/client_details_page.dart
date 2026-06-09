@@ -25,7 +25,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
   bool get isAdmin => widget.isAdmin;
 
   // ───────────────────────────────────────────────
-  // 🔥 ELIMINAR CLIENTE
+  // ELIMINAR CLIENTE
   // ───────────────────────────────────────────────
   Future<void> _deleteClient() async {
     await FirebaseFirestore.instance
@@ -95,7 +95,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
   }
 
   // ───────────────────────────────────────────────
-  // 🔥 ELIMINAR INSTALACIÓN
+  // ELIMINAR INSTALACIÓN
   // ───────────────────────────────────────────────
   void _confirmDeleteInstallation(int index) {
     showDialog(
@@ -168,7 +168,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
   }
 
   // ───────────────────────────────────────────────
-  // 🔥 AÑADIR INSTALACIÓN
+  // AÑADIR INSTALACIÓN
   // ───────────────────────────────────────────────
   Future<void> _openAddInstallation() async {
     if (!isAdmin) return;
@@ -186,7 +186,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
   }
 
   // ───────────────────────────────────────────────
-  // 🔥 UI PRINCIPAL
+  // UI PRINCIPAL
   // ───────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
@@ -200,7 +200,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
         centerTitle: true,
       ),
 
-      // 🔥 BOTÓN FIJO ABAJO (solo admin)
+      // BOTÓN FIJO ABAJO (solo admin)
       bottomNavigationBar: isAdmin
           ? SafeArea(
               minimum: const EdgeInsets.all(20),
@@ -261,7 +261,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
 
                 const SizedBox(height: 30),
 
-                // 🔥 LISTA DE INSTALACIONES
+                // LISTA DE INSTALACIONES
                 Text("Instalaciones", style: AppTextStyles.h2),
                 const SizedBox(height: 10),
 
@@ -372,7 +372,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
                     onPressed: _openAddInstallation,
                   ),
 
-                // 🔥 ESPACIO EXTRA PARA QUE EL SCROLL NO CHOQUE CON EL BOTÓN FIJO
+                // ESPACIO EXTRA PARA QUE EL SCROLL NO CHOQUE CON EL BOTÓN FIJO
                 const SizedBox(height: 100),
               ],
             ),
