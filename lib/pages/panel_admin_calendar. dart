@@ -1,0 +1,154 @@
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:table_calendar/table_calendar.dart';
+
+class PanelAdminCalendar extends StatefulWidget {
+  const PanelAdminCalendar({super.key});
+
+  @override
+  State<PanelAdminCalendar> createState() => _PanelAdminCalendarState();
+}
+
+class _PanelAdminCalendarState extends State<PanelAdminCalendar> {
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
+  String? _filtroInstalador;
+  List<String> _instaladores = ['Todos'];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDay = _focusedDay;
+    _cargarInstaladores();
+  }
+
+  Future<void> _cargarInstaladores() async {
+    final snapshot = await FirebaseFirestore.instance
+      .collection('users')
+      .where('role', isEqualTo: 'instalador')
+      .get();
+    setState(() {
+      _instaladores = ['Todos',...snapshot.docs.map((e) => e['name']?? 'Sin nombre')];
+    });
+  }
+
+  Stream<QuerySnapshot> _getWorkOrdersStream() {
+    Query query = FirebaseFirestore.instance.collection('work_orders');
+    if (_filtroInstalador!= null && _filtroInstalador!= 'Todos') {
+      query = query.where('instalador', isEqualTo: _filtroInstalador);
+    }
+    return query.snapshots();
+  }
+
+  Color _getStatusColor(String estado) {
+    switch (estado.toLowerCase()) {
+      case 'completado': return Colors.green;
+      case 'en curso': return Colors.orange;
+      case 'pendiente': return Colors.red;
+      default: return Colors.grey;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Panel Admin #61'),
+        backgroundColor: Colors.blue[800],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: DropdownButton<String>(
+              value: _filtroInstalador?? 'Todos',
+              dropdownColor: Colors.blue[700],
+              style: const TextStyle(color: Colors.white),
+              underline: Container(),
+              items: _instaladores.map((String value) {
+                return DropdownMenuItem<String>(value: value, child: Text(value));
+              }).toList(),
+              onChanged: (newValue) => setState(() => _filtroInstalador = newValue),
+            ),
+          ),
+        ],
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _getWorkOrdersStream(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final Map<DateTime, List<Map<String, dynamic>>> events = {};
+          if (snapshot.hasData) {
+            for (var doc in snapshot.data!.docs) {
+              final data = doc.data() as Map<String, dynamic>;
+              final DateTime date = (data['fecha'] as Timestamp).toDate();
+              final day = DateTime(date.year, date.month, date.day);
+              events[day]??= [];
+              events[day]!.add({
+                'id': doc.id,
+                'cliente': data['cliente']?? 'Sin cliente',
+                'direccion': data['direccion']?? 'Sin dirección',
+                'instalador': data['instalador']?? 'Sin asignar',
+                'estado': data['estado']?? 'pendiente',
+              });
+            }
+          }
+          List<Map<String, dynamic>> getEventsForDay(DateTime day) {
+            return events[DateTime(day.year, day.month, day.day)]?? [];
+          }
+          return Column(
+            children: [
+              TableCalendar(
+                firstDay: DateTime.utc(2020, 1, 1),
+                lastDay: DateTime.utc(2030, 12, 31),
+                focusedDay: _focusedDay,
+                selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                eventLoader: getEventsForDay,
+                onDaySelected: (selectedDay, focusedDay) {
+                  setState(() {
+                    _selectedDay = selectedDay;
+                    _focusedDay = focusedDay;
+                  });
+                },
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: getEventsForDay(_selectedDay!).isEmpty
+                  ? const Center(child: Text('No hay trabajos para este día'))
+                    : ListView.builder(
+                        itemCount: getEventsForDay(_selectedDay!).length,
+                        itemBuilder: (context, index) {
+                          final trabajo = getEventsForDay(_selectedDay!)[index];
+                          return Card(
+                            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: _getStatusColor(trabajo['estado']),
+                                child: const Icon(Icons.build, color: Colors.white),
+                              ),
+                              title: Text(trabajo['cliente'],
+                                  style: const TextStyle(fontWeight: FontWeight.bold)),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('📍 ${trabajo['direccion']}'),
+                                  Text('👷 ${trabajo['instalador']}'),
+                                  Text('Estado: ${trabajo['estado']}',
+                                      style: TextStyle(
+                                        color: _getStatusColor(trabajo['estado']),
+                                        fontWeight: FontWeight.w600,
+                                      )),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
