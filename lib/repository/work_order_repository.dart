@@ -41,7 +41,6 @@ class WorkOrderRepository {
     });
   }
 
-  /// CLM 62 - actualizar estado + historialEstados
   Future<void> updateWorkOrderStatus({
     required String workOrderId,
     required String newStatus,
