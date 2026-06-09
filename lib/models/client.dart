@@ -1,5 +1,6 @@
 /// Representa un cliente en la colección clients de Firestore.
 class Client {
+  
   /// ID único del cliente (generado por Firestore)
   final String? id;
 
