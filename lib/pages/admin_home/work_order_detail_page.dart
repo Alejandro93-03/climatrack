@@ -6,7 +6,7 @@ import '../../core/app_colors.dart';
 import '../../core/app_textstyles.dart';
 import '../../widgets/app_buttons.dart';
 
-/// 🔥 Color dinámico según estado (solo AppColors)
+/// Color dinámico según estado (solo AppColors)
 Color getStatusColor(String status) {
   switch (status) {
     case "pendiente":
@@ -98,7 +98,7 @@ class WorkOrderDetailPage extends StatelessWidget {
             child: ListView(
               children: [
                 // ---------------------------------------------------------
-                // 🔵 CABECERA INDUSTRIAL (centrada)
+                // CABECERA INDUSTRIAL (centrada)
                 // ---------------------------------------------------------
                 Container(
                   width: double.infinity,
@@ -120,7 +120,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 👤 CLIENTE
+                // CLIENTE
                 // ---------------------------------------------------------
                 FutureBuilder<DocumentSnapshot>(
                   future: FirebaseFirestore.instance
@@ -178,7 +178,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 🔧 TÉCNICO
+                // TÉCNICO
                 // ---------------------------------------------------------
                 FutureBuilder<DocumentSnapshot>(
                   future: FirebaseFirestore.instance
@@ -222,7 +222,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 🛠️ TIPO DE TRABAJO
+                // TIPO DE TRABAJO
                 // ---------------------------------------------------------
                 _infoRow(
                   icon: Icons.work,
@@ -234,7 +234,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 📌 ESTADO (badge dinámico)
+                // ESTADO (badge dinámico)
                 // ---------------------------------------------------------
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,7 +247,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // 🔵 TÍTULO NORMAL (NO DINÁMICO)
+                          // TÍTULO NORMAL (NO DINÁMICO)
                           Text(
                             "Estado",
                             style: AppTextStyles.body2.copyWith(
@@ -258,7 +258,7 @@ class WorkOrderDetailPage extends StatelessWidget {
 
                           const SizedBox(height: 6),
 
-                          // 🔥 BADGE IGUAL AL DE WorkOrderCard
+                          // BADGE IGUAL AL DE WorkOrderCard
                           Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 12,
@@ -285,7 +285,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 📅 FECHA PROGRAMADA
+                // FECHA PROGRAMADA
                 // ---------------------------------------------------------
                 _infoRow(
                   icon: Icons.calendar_month,
@@ -444,7 +444,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 ),
 
                 // ---------------------------------------------------------
-                // 📝 OBSERVACIONES
+                // OBSERVACIONES
                 // ---------------------------------------------------------
                 Text(
                   "Observaciones",
@@ -459,7 +459,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 40),
 
                 // ---------------------------------------------------------
-                // 🔄 CAMBIAR TÉCNICO
+                // CAMBIAR TÉCNICO
                 // ---------------------------------------------------------
                 AppButtons.primary(
                   text: "Cambiar técnico",
@@ -483,7 +483,7 @@ class WorkOrderDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // ---------------------------------------------------------
-                // 🗑️ ELIMINAR ORDEN
+                // ELIMINAR ORDEN
                 // ---------------------------------------------------------
                 AppButtons.primaryDelete(
                   text: "Eliminar orden",
@@ -560,7 +560,7 @@ class WorkOrderDetailPage extends StatelessWidget {
   }
 
   // ---------------------------------------------------------
-  // 🔧 WIDGET REUTILIZABLE PARA FILAS DE INFORMACIÓN
+  // WIDGET REUTILIZABLE PARA FILAS DE INFORMACIÓN
   // ---------------------------------------------------------
   Widget _infoRow({
     required IconData icon,
