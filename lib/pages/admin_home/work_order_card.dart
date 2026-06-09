@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_textstyles.dart';
 
-/// 🔥 Color dinámico según estado (solo AppColors)
+/// Color dinámico según estado (solo AppColors)
 Color getStatusColor(String status) {
   switch (status) {
     case "pendiente":
@@ -26,7 +26,7 @@ Color getStatusColor(String status) {
 
 class WorkOrderCard extends StatelessWidget {
   final String orderId;
-  final String orderCode; // 🔥 ahora debe venir de order_code
+  final String orderCode; // Ahora debe venir de order_code
   final String clientId;
   final String type;
   final String status;
@@ -75,7 +75,7 @@ class WorkOrderCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // ---------------------------------------------------------
-            // 🔵 CABECERA AZUL (código + estado dinámico)
+            // CABECERA AZUL (código + estado dinámico)
             // ---------------------------------------------------------
             Container(
               width: double.infinity,
@@ -89,7 +89,7 @@ class WorkOrderCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // 🔥 Código de orden (CLM-2026-0001)
+                  // Código de orden (CLM-2026-0001)
                   Text(
                     orderCode,
                     style: AppTextStyles.h3w.copyWith(
@@ -97,7 +97,7 @@ class WorkOrderCard extends StatelessWidget {
                     ),
                   ),
 
-                  // 🔥 BADGE: fondo dinámico + texto blanco
+                  // BADGE: fondo dinámico + texto blanco
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -128,7 +128,7 @@ class WorkOrderCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // ---------------------------------------------------------
-                  // 👤 CLIENTE + FECHA
+                  // CLIENTE + FECHA
                   // ---------------------------------------------------------
                   FutureBuilder<DocumentSnapshot>(
                     future: FirebaseFirestore.instance
@@ -211,7 +211,7 @@ class WorkOrderCard extends StatelessWidget {
                   const SizedBox(height: 14),
 
                   // ---------------------------------------------------------
-                  // 🔧 TÉCNICO
+                  // TÉCNICO
                   // ---------------------------------------------------------
                   FutureBuilder<DocumentSnapshot>(
                     future: FirebaseFirestore.instance
