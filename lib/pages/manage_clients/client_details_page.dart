@@ -233,7 +233,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 🔥 DATOS DEL CLIENTE
+                // DATOS DEL CLIENTE
                 Text(name, style: AppTextStyles.h2),
                 const SizedBox(height: 6),
                 Text(email, style: AppTextStyles.body1),
@@ -241,7 +241,7 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
 
                 const SizedBox(height: 20),
 
-                // 🔥 BOTÓN EDITAR CLIENTE
+                // BOTÓN EDITAR CLIENTE
                 if (isAdmin)
                   AppButtons.primary(
                     text: "Editar cliente",
