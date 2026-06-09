@@ -9,13 +9,13 @@ class AppButtons {
       backgroundColor: bg,
       foregroundColor: fg,
 
-      // ⭐ NUEVO: sombra suave industrial (CLM-AESTHETIC)
+      // Sombra suave industrial 
       elevation: 3,
       shadowColor: AppColors.shadow,
 
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
 
-      // ⭐ NUEVO: borde más redondeado (CLM-AESTHETIC)
+      // Borde más redondeado 
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
   }
@@ -31,7 +31,7 @@ class AppButtons {
       backgroundColor: AppColors.white,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
 
-      // ⭐ NUEVO: borde más redondeado (CLM-AESTHETIC)
+      // Borde más redondeado
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
   }
@@ -46,7 +46,7 @@ class AppButtons {
       width: width,
       child: ElevatedButton(
         style: _baseStyle(bg: AppColors.primary, fg: AppColors.white).copyWith(
-          // ⭐ NUEVO: borde azul oscuro (CLM-AESTHETIC)
+          // Borde azul oscuro 
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -57,7 +57,7 @@ class AppButtons {
         onPressed: onPressed,
         child: Text(
           text,
-          // ⭐ NUEVO: tipografía más fuerte (CLM-AESTHETIC)
+          // Tipografía más fuerte 
           style: AppTextStyles.body1.copyWith(
             color: AppColors.white,
             fontWeight: FontWeight.w600,
@@ -76,7 +76,7 @@ class AppButtons {
       width: width,
       child: ElevatedButton(
         style: _baseStyle(bg: AppColors.error, fg: AppColors.white).copyWith(
-          // ⭐ NUEVO: borde rojo (CLM-AESTHETIC)
+          // Borde rojo 
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -106,7 +106,7 @@ class AppButtons {
       child: ElevatedButton(
         style: _baseStyle(bg: AppColors.primaryDark, fg: AppColors.white)
             .copyWith(
-              // ⭐ NUEVO: borde azul (CLM-AESTHETIC)
+              // Borde azul 
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -136,7 +136,7 @@ class AppButtons {
       child: ElevatedButton(
         style: _baseStyle(bg: AppColors.primaryLight, fg: AppColors.white)
             .copyWith(
-              // ⭐ NUEVO: borde azul (CLM-AESTHETIC)
+              // Borde azul 
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -188,7 +188,7 @@ class AppButtons {
       child: ElevatedButton(
         style: _baseStyle(bg: AppColors.secondary, fg: AppColors.white)
             .copyWith(
-              // ⭐ NUEVO: borde naranja oscuro (CLM-AESTHETIC)
+              // Borde naranja oscuro 
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -314,7 +314,7 @@ class AppButtons {
           text,
           style: AppTextStyles.body2.copyWith(
             color: AppColors.black,
-            fontWeight: FontWeight.w600, // ⭐ NUEVO (CLM-AESTHETIC)
+            fontWeight: FontWeight.w600, // 
           ),
         ),
       ),
@@ -353,7 +353,7 @@ class AppButtons {
               text,
               style: AppTextStyles.body1.copyWith(
                 color: textColor,
-                fontWeight: FontWeight.w600, // ⭐ NUEVO (CLM-AESTHETIC)
+                fontWeight: FontWeight.w600, 
               ),
             ),
           ],
@@ -396,7 +396,7 @@ class AppButtons {
               text,
               style: AppTextStyles.body1.copyWith(
                 color: textColor,
-                fontWeight: FontWeight.w600, // ⭐ NUEVO (CLM-AESTHETIC)
+                fontWeight: FontWeight.w600, 
               ),
             ),
           ],
