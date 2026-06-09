@@ -79,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
 
-      // ⭐⭐ NUEVO DISEÑO, RESPETANDO TU ESTRUCTURA ⭐⭐ (CLM-AESTHETIC)
+      // NUEVO DISEÑO RESPETANDO LA ESTRUCTURA ANTERIOR 
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // 🔧 Encabezado visual (nuevo)
+            // Encabezado visual (nuevo)
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const SizedBox(height: 40),
 
-            // 🔵 Botón principal (tu botón original, sin tocar)
+            // Botón principal (tu botón original, sin tocar)
             AppButtons.primary(
               text: "Agenda del Día",
               width: 250,
@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const SizedBox(height: 40),
 
-            // 🎨 Fondo decorativo suave
+            // Fondo decorativo suave
             Opacity(
               opacity: 0.08,
               child: Icon(
