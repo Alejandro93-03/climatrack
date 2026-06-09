@@ -118,7 +118,7 @@ class _ManageClientsPageState extends State<ManageClientsPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // 🔍 BUSCADOR + BOTÓN ORDENAR
+            // BUSCADOR + BOTÓN ORDENAR
             Row(
               children: [
                 Expanded(
@@ -147,7 +147,7 @@ class _ManageClientsPageState extends State<ManageClientsPage> {
 
             const SizedBox(height: 20),
 
-            // ➕ AÑADIR CLIENTE (solo admin)
+            // AÑADIR CLIENTE (solo admin)
             if (isAdmin)
               AppButtons.primary(
                 text: "Añadir cliente",
@@ -162,7 +162,7 @@ class _ManageClientsPageState extends State<ManageClientsPage> {
 
             if (isAdmin) const SizedBox(height: 20),
 
-            // 📄 LISTA DE CLIENTES
+            // LISTA DE CLIENTES
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
@@ -197,7 +197,7 @@ class _ManageClientsPageState extends State<ManageClientsPage> {
                         installations.toString().contains(query);
                   }).toList();
 
-                  // 🔥 ORDENACIÓN
+                  // ORDENACIÓN
                   filtered.sort((a, b) {
                     final dataA = a.data() as Map<String, dynamic>;
                     final dataB = b.data() as Map<String, dynamic>;
@@ -276,7 +276,7 @@ class _ManageClientsPageState extends State<ManageClientsPage> {
                               MaterialPageRoute(
                                 builder: (_) => ClientDetailsPage(
                                   clientId: filtered[index].id,
-                                  isAdmin: isAdmin, // 🔥 PASAMOS PERMISO
+                                  isAdmin: isAdmin, // PASAMOS PERMISO
                                 ),
                               ),
                             );
