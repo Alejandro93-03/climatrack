@@ -70,9 +70,9 @@ class _AddClientPageState extends State<AddClientPage> {
       context,
       MaterialPageRoute(
         builder: (_) => EditInstallationPage(
-          clientId: "new", // no existe aún, pero no importa
+          clientId: "new", 
           installation: null,
-          returnMode: true, // 👈 modo especial para AddClientPage
+          returnMode: true, // modo especial para AddClientPage
         ),
       ),
     );
@@ -129,7 +129,7 @@ class _AddClientPageState extends State<AddClientPage> {
             ),
             const SizedBox(height: 30),
 
-            // 🔥 Botón añadir instalación
+            // Botón añadir instalación
             AppButtons.secondary(
               text: "Añadir instalación",
               width: double.infinity,
@@ -138,7 +138,7 @@ class _AddClientPageState extends State<AddClientPage> {
 
             const SizedBox(height: 20),
 
-            // 🔥 Lista de instalaciones añadidas
+            // Lista de instalaciones añadidas
             if (installations.isNotEmpty)
               Column(
                 children: installations.map((inst) {
