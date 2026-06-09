@@ -139,7 +139,7 @@ class ProfilePage extends StatelessWidget {
   }
 
   // -------------------------------------------------------------
-  // 🔥 DIÁLOGO PARA EDITAR NOMBRE Y APELLIDOS
+  // DIÁLOGO PARA EDITAR NOMBRE Y APELLIDOS
   // -------------------------------------------------------------
   void _showEditNameDialog({
     required BuildContext context,
