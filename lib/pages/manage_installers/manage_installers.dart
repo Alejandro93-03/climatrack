@@ -290,7 +290,7 @@ class _ManageRolesPageState extends State<ManageRolesPage> {
             ),
           ),
 
-          // 🔥 BOTÓN AÑADIR TÉCNICO (ESTILO AddClientPage)
+          // BOTÓN AÑADIR TÉCNICO (ESTILO AddClientPage)
           if (isAdmin)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
