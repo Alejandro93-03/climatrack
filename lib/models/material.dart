@@ -1,6 +1,7 @@
 /// Representa un material del catálogo en la colección `materials` de Firestore.
 /// COINCIDE EXACTAMENTE CON LA ESTRUCTURA DE FIRESTORE SEGÚN GUÍA
 class Material {
+  
   /// ID único del material (generado por Firestore)
   final String id;
 
