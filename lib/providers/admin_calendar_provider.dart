@@ -22,7 +22,7 @@ class AdminCalendarProvider extends ChangeNotifier {
       debugPrint("Error al reordenar: $e");
     } finally {
       _isUpdating = false;
-      notifyListeners(); // Actualiza la UI tras finalizar [
+      notifyListeners(); // Actualiza la UI tras finalizar 
     }
   }
 }
