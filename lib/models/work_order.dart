@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// Representa un parte de trabajo en la colección work_orders de Firestore.
 class WorkOrder {
+  
   /// ID único del parte (generado por Firestore)
   final String id;
 
