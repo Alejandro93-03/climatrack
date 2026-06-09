@@ -131,7 +131,7 @@ class _WorkOrderItemState extends State<WorkOrderItem> {
                 context,
                 MaterialPageRoute(
                   builder: (_) => ParteTrabajoForm(
-                    workOrderId: widget.order.id, // 👈 IMPORTANTE
+                    workOrderId: widget.order.id, // IMPORTANTE
                   ),
                 ),
               );
