@@ -10,7 +10,7 @@ class EditInstallationPage extends StatefulWidget {
   final String clientId;
   final Map<String, dynamic>? installation;
 
-  /// 🔥 NUEVO: si es true, no guarda en Firestore y devuelve la instalación
+  /// Si es true, no guarda en Firestore y devuelve la instalación
   final bool returnMode;
 
   const EditInstallationPage({
@@ -53,7 +53,7 @@ class _EditInstallationPageState extends State<EditInstallationPage> {
   Future<void> _pickDate(TextEditingController controller) async {
     final picked = await showDatePicker(
       context: context,
-      useRootNavigator: true, // 🔥 FUNCIONA SIEMPRE, incluso dentro de diálogos
+      useRootNavigator: true, // FUNCIONA SIEMPRE, incluso dentro de diálogos
       initialDate: DateTime.now(),
       firstDate: DateTime(1990),
       lastDate: DateTime(2100),
@@ -88,13 +88,13 @@ class _EditInstallationPageState extends State<EditInstallationPage> {
       "warranty_expiry": warrantyController.text.trim(),
     };
 
-    // 🔥 MODO RETURN → vuelve a AddClientPage sin guardar en Firestore
+    // MODO RETURN → vuelve a AddClientPage sin guardar en Firestore
     if (widget.returnMode) {
       Navigator.pop(context, newInstallation);
       return;
     }
 
-    // 🔥 MODO NORMAL → guarda en Firestore
+    // MODO NORMAL → guarda en Firestore
     setState(() => isLoading = true);
 
     final doc = FirebaseFirestore.instance
