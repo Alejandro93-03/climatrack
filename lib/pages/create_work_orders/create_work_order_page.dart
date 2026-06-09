@@ -19,7 +19,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
   DateTime? selectedDate;
   final TextEditingController observationsController = TextEditingController();
 
-  // 🔥 Generar número correlativo usando counters/work_orders_2026 (campo last)
+  // Generar número correlativo usando counters/work_orders_2026 (campo last)
   Future<int> generarNumeroOrden() async {
     final counterRef = FirebaseFirestore.instance
         .collection("counters")
@@ -41,7 +41,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
     });
   }
 
-  // 🔥 Crear orden
+  // Crear orden
   Future<void> _createWorkOrder() async {
     if (selectedClientId == null ||
         selectedTechnicianId == null ||
@@ -53,18 +53,18 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
       return;
     }
 
-    // 1️⃣ Obtener contador
+    // 1️Obtener contador
     final newNumber = await generarNumeroOrden();
 
-    // 2️⃣ Formar número final EXACTO como tú pides
+    // 2️Formar número final EXACTO como tú pides
     final year = DateTime.now().year;
     final formatted = newNumber.toString().padLeft(4, "0");
 
     final numberString = "CLM-$year-$formatted";
 
-    // 3️⃣ Guardar SOLO number como string
+    // 3️Guardar SOLO number como string
     await FirebaseFirestore.instance.collection("work_orders").add({
-      "number": numberString, // 🔥 STRING FINAL
+      "number": numberString, // STRING FINAL
       "client_id": selectedClientId,
       "technician_id": selectedTechnicianId,
       "type": selectedType,
@@ -84,7 +84,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
     Navigator.pop(context, true);
   }
 
-  // 🔥 Selector de fecha
+  // Selector de fecha
   Future<void> _pickDate() async {
     final picked = await showDatePicker(
       context: context,
@@ -159,7 +159,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            // 🔥 Seleccionar cliente
+            // Seleccionar cliente
             Text("Cliente", style: AppTextStyles.h3),
             const SizedBox(height: 6),
 
@@ -213,7 +213,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
 
             const SizedBox(height: 20),
 
-            // 🔥 Seleccionar técnico
+            // Seleccionar técnico
             Text("Técnico", style: AppTextStyles.h3),
             const SizedBox(height: 6),
 
@@ -267,7 +267,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
 
             const SizedBox(height: 20),
 
-            // 🔥 Tipo de trabajo
+            // Tipo de trabajo
             Text("Tipo de trabajo", style: AppTextStyles.h3),
             const SizedBox(height: 6),
 
@@ -309,7 +309,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
 
             const SizedBox(height: 20),
 
-            // 🔥 Fecha programada
+            // Fecha programada
             Text("Fecha programada", style: AppTextStyles.h3),
             const SizedBox(height: 6),
 
@@ -335,7 +335,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
 
             const SizedBox(height: 20),
 
-            // 🔥 Observaciones
+            // Observaciones
             Text("Observaciones", style: AppTextStyles.h3),
             const SizedBox(height: 6),
 
@@ -347,7 +347,7 @@ class _CreateWorkOrderPageState extends State<CreateWorkOrderPage> {
 
             const SizedBox(height: 40),
 
-            // 🔥 Crear orden
+            // Crear orden
             AppButtons.primary(
               text: "Crear orden",
               width: double.infinity,
